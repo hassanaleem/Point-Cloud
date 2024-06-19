@@ -1,0 +1,9 @@
+<div class="pagination-container">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    @for (item of pages; track $index) {
+    <span (click)="goToPage(item)" [class.active]="item === currentPage">
+        {{ item }}
+    </span>
+    }
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+</div>

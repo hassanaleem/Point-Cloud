@@ -1,0 +1,7 @@
+<div class="loader-wrapper" [ngClass]="{ 'loading': loading }">
+    <div class="loader">
+      <div class="loader-bar" [style.width.%]="progress"></div>
+    </div>
+    <div class="loader-text">Loading... {{ progress }}%</div>
+</div>
+  

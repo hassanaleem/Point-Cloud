@@ -1,0 +1,24 @@
+<div class="panel-container">
+    <button class="btn" (click)="navigateToHistory()">
+        Go To History
+    </button>
+    @for (button of buttons; track $index) {
+    <button class="btn" [ngClass]="{ 'active': selectedButton === button.mode }"
+        [disabled]="button.conditional && !enableControls" (click)="setSelectedButton(button.mode)">
+        {{ button.label }}
+    </button>
+    }
+    <div class="btn-input">
+        <button class="btn" [ngClass]="{ 'active': selectedButton === 'label' }" (click)="setSelectedButton('label')">
+            Add Label Annotation
+        </button>
+        @if(selectedButton === 'label') {
+        <div class="label-input">
+            <input type="text" placeholder="Enter label" [value]="value" (keyup)="onChangeInput($event)">
+        </div>
+        }
+        </div>
+    <button class="btn" [ngClass]="{ 'active': selectedButton === 'save' }" (click)="setSelectedButton('save')">
+        Save
+    </button>
+</div>
